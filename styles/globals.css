@@ -1,9 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.btn {
-    @apply py-2 px-4 font-semibold rounded-lg shadow-md;
+
+.hideMenu {
+    transform: translateX(100%);
 }
-.btn-green {
-    @apply text-white bg-green-500 hover:bg-green-700;
+.showMenu {
+    transform: translateX(0);
+}
+.mobileMenu {
+    @apply absolute bg-gray-300 right-0 text-center w-6/12 p-4 transition-transform;
 }
