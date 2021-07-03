@@ -7,7 +7,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="md:bg-gray-100 relative">
+        <nav className="md:bg-gray-300 relative overflow_x_clip">
             <div className="max-w-7xl mx-auto px-4 bg-gray-300">
                 <div className="flex justify-between">
 
@@ -51,11 +51,11 @@ const Navbar = () => {
                 </div>
             </div>
             {/* Mobile Menu */}
-            <div className={`mobileMenu ${showMenu?'showMenu':'hideMenu'}`}>
+            <div className={`${showMenu?'showMenu h-96 space-y-10':'hideMenu'}`}>
                 <a href="" className="block py-2 px-4 text-sm hover:bg-gray-200">Services</a>
                 <a href="" className="block py-2 px-4 text-sm hover:bg-gray-200">Pricing</a>
-                <a href="" className="block py-2 px-4 text-sm hover:bg-gray-200">Login</a>
-                <a href="" className="py-2 px-4 text-sm bg-green-400 hover:bg-green-300 text-green-800 rounded shadow transition duration-300">Signup</a>
+                <a href="" className="block py-2 px-4 text-sm hover:bg-gray-200 mb-4">Login</a>
+                <a href="" className="block py-2 px-4 text-sm w-32 mx-auto bg-green-400 hover:bg-green-300 text-green-800 rounded shadow transition duration-300">Signup</a>
             </div>
         </nav>
     );
