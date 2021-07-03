@@ -4,7 +4,7 @@ import Link from 'next/link'
 const ServiceCard = ({service, hours, price, desc, imgSrc, url, w, h}) => {
     return (
         <div className="mt-10 w-11/12 sm:w-80 mx-auto bg-gray-100">
-            <div>
+            <div className="w-full flex justify-center">
                 <Image src={imgSrc} width={w} height={h}/>
             </div>
             <div className="px-5 mt-6 pb-4">
