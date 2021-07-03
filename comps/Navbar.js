@@ -7,7 +7,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="md:bg-gray-300 relative overflow_x_clip">
+        <nav className="md:bg-gray-300 relative overflow_x_clip z-50">
             <div className="max-w-7xl mx-auto px-4 bg-gray-300">
                 <div className="flex justify-between">
 

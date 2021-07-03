@@ -84,10 +84,13 @@ const SelectServices = ({use, id}) => {
     );
 }
 
-const SelectDate = () => {
+const SelectDate = ({use, id}) => {
     return (
         <div>
             <Calender />
+            <button onClick={use.updatePage} id={1}>
+                this {id}
+            </button>
         </div>
     );
 }
