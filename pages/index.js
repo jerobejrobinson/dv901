@@ -18,7 +18,7 @@ export default function Home() {
     <div>
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center mt-10">services</h1>
-        <div className="">
+        <div>
           <ServiceCard 
             service="Classic Set" 
             hours="3hr" 

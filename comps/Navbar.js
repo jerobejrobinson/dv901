@@ -51,7 +51,7 @@ const Navbar = () => {
                 </div>
             </div>
             {/* Mobile Menu */}
-            <div className={`${showMenu?'showMenu h-96 space-y-10':'hideMenu'}`}>
+            <div className={showMenu?'showMenu h-96 space-y-10':'hideMenu'}>
                 <a href="" className="block py-2 px-4 text-sm hover:bg-gray-200">Services</a>
                 <a href="" className="block py-2 px-4 text-sm hover:bg-gray-200">Pricing</a>
                 <a href="" className="block py-2 px-4 text-sm hover:bg-gray-200 mb-4">Login</a>
