@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link'
 
-const ServiceCard = ({service, hours, price, desc, imgSrc, url, w, h}) => {
+const ServiceCard = ({service, hours, price, desc, imgSrc, url, w, h, use}) => {
     return (
         <div className="mt-10 w-11/12 sm:w-80 mx-auto bg-gray-100">
             <div className="w-full flex justify-center">
@@ -13,7 +13,10 @@ const ServiceCard = ({service, hours, price, desc, imgSrc, url, w, h}) => {
                     <span className="font-light">{hours} {price}</span>
                 </div>
                 <p className="mt-2">{desc}</p>
-                <button className="text-center bg-gray-200 w-full py-2 rounded mt-5">
+                <button 
+                    className="text-center bg-gray-200 w-full py-2 rounded mt-5"
+                    
+                >
                     <Link href={url}>
                         <a>Book Now</a>
                     </Link>

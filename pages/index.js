@@ -1,6 +1,12 @@
 import ServiceCard from "../comps/ServiceCard";
 
 export default function Home() {
+  const handleClick = () => {
+    //put data into local storage
+    //grab data from LS to generate Service Card on Booking
+    //make sure to clear data once booking has been made
+
+  }
   return (
     <>
     <div className="bg-gray-100 text-center py-12">
@@ -16,41 +22,7 @@ export default function Home() {
       </div>
     </div>
     <div>
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mt-10">services</h1>
-        <div>
-          <ServiceCard 
-            service="Classic Set" 
-            hours="3hr" 
-            price="$65" 
-            desc="Classic set gives you a more natural look. 1 lash extension to 1 natural lash. You may get any length between 8mm-14mm." 
-            imgSrc="/services/classic-set.png" 
-            url="#"
-            w={354}
-            h={174}
-          />
-          <ServiceCard 
-            service="Hybrid Set" 
-            hours="3hr" 
-            price="$65" 
-            desc="Classic set gives you a more natural look. 1 lash extension to 1 natural lash. You may get any length between 8mm-14mm." 
-            imgSrc="/services/hybrid-set.png" 
-            url="#"
-            w={354}
-            h={174}
-          />
-          <ServiceCard 
-            service="Volume Set" 
-            hours="3hr" 
-            price="$65" 
-            desc="Classic set gives you a more natural look. 1 lash extension to 1 natural lash. You may get any length between 8mm-14mm." 
-            imgSrc="/services/volume-set.png" 
-            url="#"
-            w={354}
-            h={174}
-          />
-        </div>
-      </div>
+      
     </div>
     </>
   )
