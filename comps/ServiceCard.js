@@ -1,9 +1,22 @@
+import { useContext } from 'react';
 import Image from 'next/image';
-import Link from 'next/link'
+import { Update } from '../pages/booking';
 
-const ServiceCard = ({service, hours, price, desc, imgSrc, url, w, h, use}) => {
+const ServiceCard = ({service, hours, price, desc, imgSrc, w, h, book}) => {
+    const update = useContext(Update)
+    const data = {
+        service,
+        hours,
+        price,
+        desc,
+        imgSrc,
+        w,
+        h
+    }
+    const bookingTrue = "w-11/12 mt-10 mx-auto bg-gray-100 sm:w-80";
+    const bookingFalse = "w-11/12 mt-10 mx-auto bg-gray-100 md:flex md:max-w-screen-md md:mx-auto";
     return (
-        <div className="mt-10 w-11/12 sm:w-80 mx-auto bg-gray-100">
+        <div className={book?bookingTrue:bookingFalse}>
             <div className="w-full flex justify-center">
                 <Image src={imgSrc} width={w} height={h}/>
             </div>
@@ -13,14 +26,13 @@ const ServiceCard = ({service, hours, price, desc, imgSrc, url, w, h, use}) => {
                     <span className="font-light">{hours} {price}</span>
                 </div>
                 <p className="mt-2">{desc}</p>
-                <button 
+                {book?<button 
                     className="text-center bg-gray-200 w-full py-2 rounded mt-5"
-                    
-                >
-                    <Link href={url}>
-                        <a>Book Now</a>
-                    </Link>
-                </button>
+                    onClick={() => {
+                        update.page()
+                        update.data(data)
+                    }}
+                >Book Now</button>:null}
             </div>
         </div>
     );
