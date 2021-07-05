@@ -2,6 +2,7 @@ import React, {useState, useContext} from "react";
 import ProgressBar from "../comps/ProgressBar";
 import ServiceCard from "../comps/ServiceCard";
 import Calender from "../comps/Calender"
+import TimeSlot from "../comps/TimeSlot/";
 export const Update = React.createContext();
 
 export default function Booking() {
@@ -31,7 +32,7 @@ export default function Booking() {
                 <ProgressBar percent={percent} />
                 {page === 1 && <SelectServices />}
                 {page === 2 && <SelectDate data={data}/>}
-                {page === 3 && <SelectServices />}
+                {page === 3 && <SelectTime />}
                 {page === 4 && <SelectServices />}
                 {page === 5 && <SelectServices />}
             </Update.Provider >
@@ -100,8 +101,9 @@ const SelectDate = ({data}) => {
 
 const SelectTime = () => {
     return (
-        <div>
-
+        <div className="p-2">
+            <h1 className="text-4xl font-bold text-center mb-10">Select Time</h1>
+            <TimeSlot />
         </div>
     );
 }
