@@ -36,7 +36,7 @@ const Calender = () => {
                         
                     </div>
                 ))}
-                <ContinueBtn data={{day: value.format("MM-DD-YYYY").toString()}} >Continue</ContinueBtn>
+                <ContinueBtn data={{date: value.format("MM-DD-YYYY").toString()}} >Continue</ContinueBtn>
             </div>
         </div>
     );

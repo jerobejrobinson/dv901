@@ -28,7 +28,9 @@ export default function Booking() {
             setServiceSelected(prev => {
                 return {...prev, ...service}
             })
-        }
+        },
+        getData: data,
+        getPage: page, 
     
     }
         
