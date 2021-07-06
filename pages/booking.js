@@ -4,6 +4,7 @@ import ServiceCard from "../comps/ServiceCard";
 import Calender from "../comps/Calender"
 import TimeSlot from "../comps/TimeSlot/";
 import Forms from "../comps/Forms";
+import TermsAgree from "../comps/TermsAgree";
 export const Update = React.createContext();
 
 export default function Booking() {
@@ -11,9 +12,10 @@ export default function Booking() {
     const [page, setPage] = useState(1);
     const [percent, setPercent] = useState(pagesTotal);
     const [data, setData] = useState({});
+    const [serviceSelected, setServiceSelected] = useState({});
     const update = {
         page: () => {
-            if(page === 5) return;
+            if(page === 6) return;
             setPage(prev => prev + 1);
             setPercent(pagesTotal * (page + 1));
         }, 
@@ -22,7 +24,11 @@ export default function Booking() {
                 return {...prev, ...data}
             });
         },
-        getData: data
+        serviceSelected: (service) => {
+            setServiceSelected(prev => {
+                return {...prev, ...service}
+            })
+        }
     
     }
         
@@ -32,11 +38,11 @@ export default function Booking() {
             <Update.Provider value={update} >
                 <ProgressBar percent={percent} />
                 {page === 1 && <SelectServices />}
-                {page === 2 && <SelectDate data={data}/>}
-                {page === 3 && <SelectTime data={data}/>}
-                {page === 4 && <GetCustomerInfo data={data}/>}
-                {page === 5 && <SelectServices />}
-                {page === 5 && <SelectServices />}
+                {page === 2 && <ShowPolicy data={serviceSelected} />}
+                {page === 3 && <SelectDate data={serviceSelected}/>}
+                {page === 4 && <SelectTime data={serviceSelected}/>}
+                {page === 5 && <GetCustomerInfo data={serviceSelected}/>}
+                {page === 6 && <SelectServices />}
             </Update.Provider >
         </>
     );
@@ -138,10 +144,20 @@ const GetCustomerInfo = ({data}) => {
     );
 }
 
-const ShowPolicy = () => {
+const ShowPolicy = ({data}) => {
     return (
         <div>
-
+            <TermsAgree data={data} />
+            <ServiceCard
+                service={data.service} 
+                hours={data.hours} 
+                price={data.price} 
+                desc={data.desc}
+                imgSrc={data.imgSrc} 
+                w={data.w}
+                h={data.h}
+                book={false}
+            />
         </div>
     )    ;
 }

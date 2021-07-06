@@ -2,15 +2,7 @@ import Image from 'next/image';
 import ContinueBtn from './ContinueBtn';
 
 const ServiceCard = ({service, hours, price, desc, imgSrc, w, h, book}) => {
-    const data = {
-        service,
-        hours,
-        price,
-        desc,
-        imgSrc,
-        w,
-        h
-    }
+    
     const bookingTrue = "w-11/12 mt-10 mx-auto bg-gray-100 sm:w-80";
     const bookingFalse = "w-11/12 mt-10 mx-auto bg-gray-100 md:flex md:max-w-screen-md md:mx-auto";
     return (
@@ -24,7 +16,7 @@ const ServiceCard = ({service, hours, price, desc, imgSrc, w, h, book}) => {
                     <span className="font-light">{hours} {price}</span>
                 </div>
                 <p className="mt-2">{desc}</p>
-                {book?<ContinueBtn data={data}>Book Now</ContinueBtn>:null}
+                {book?<ContinueBtn data={{service, hours, price, desc}} service={{service, hours, price, desc, imgSrc, w, h}}>Book Now</ContinueBtn>:null}
             </div>
         </div>
     );
