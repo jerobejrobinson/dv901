@@ -1,9 +1,7 @@
-import { useContext } from 'react';
 import Image from 'next/image';
-import { Update } from '../pages/booking';
+import ContinueBtn from './ContinueBtn';
 
 const ServiceCard = ({service, hours, price, desc, imgSrc, w, h, book}) => {
-    const update = useContext(Update)
     const data = {
         service,
         hours,
@@ -26,13 +24,7 @@ const ServiceCard = ({service, hours, price, desc, imgSrc, w, h, book}) => {
                     <span className="font-light">{hours} {price}</span>
                 </div>
                 <p className="mt-2">{desc}</p>
-                {book?<button 
-                    className="text-center bg-gray-200 w-full py-2 rounded mt-5"
-                    onClick={() => {
-                        update.page()
-                        update.data(data)
-                    }}
-                >Book Now</button>:null}
+                {book?<ContinueBtn data={data}>Book Now</ContinueBtn>:null}
             </div>
         </div>
     );

@@ -1,9 +1,8 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect} from "react";
 import moment from "moment";
-import { Update } from '../pages/booking';
+import ContinueBtn from "./ContinueBtn";
 
 const Calender = () => {
-    const update = useContext(Update)
     const [calender, setCalender] = useState([]);
     const [value, setValue] = useState(moment());
     const startDay = value.clone().startOf("month").startOf("week");
@@ -37,12 +36,7 @@ const Calender = () => {
                         
                     </div>
                 ))}
-                <button 
-                    className="bg-red-300 p-5 w-full uppercase font-medium" 
-                    onClick={() => {
-                        update.data({day: value.format("MM-DD-YYYY").toString()})
-                        update.page()
-                    }}>Continue</button>
+                <ContinueBtn data={{day: value.format("MM-DD-YYYY").toString()}} >Continue</ContinueBtn>
             </div>
         </div>
     );

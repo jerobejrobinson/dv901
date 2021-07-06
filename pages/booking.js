@@ -3,10 +3,11 @@ import ProgressBar from "../comps/ProgressBar";
 import ServiceCard from "../comps/ServiceCard";
 import Calender from "../comps/Calender"
 import TimeSlot from "../comps/TimeSlot/";
+import Forms from "../comps/Forms";
 export const Update = React.createContext();
 
 export default function Booking() {
-    const pagesTotal = 100/5;
+    const pagesTotal = 100/6;
     const [page, setPage] = useState(1);
     const [percent, setPercent] = useState(pagesTotal);
     const [data, setData] = useState({});
@@ -32,8 +33,9 @@ export default function Booking() {
                 <ProgressBar percent={percent} />
                 {page === 1 && <SelectServices />}
                 {page === 2 && <SelectDate data={data}/>}
-                {page === 3 && <SelectTime />}
-                {page === 4 && <SelectServices />}
+                {page === 3 && <SelectTime data={data}/>}
+                {page === 4 && <GetCustomerInfo data={data}/>}
+                {page === 5 && <SelectServices />}
                 {page === 5 && <SelectServices />}
             </Update.Provider >
         </>
@@ -99,19 +101,39 @@ const SelectDate = ({data}) => {
     );
 }
 
-const SelectTime = () => {
+const SelectTime = ({data}) => {
     return (
         <div className="p-2">
             <h1 className="text-4xl font-bold text-center mb-10">Select Time</h1>
             <TimeSlot />
+            <ServiceCard
+                service={data.service} 
+                hours={data.hours} 
+                price={data.price} 
+                desc={data.desc}
+                imgSrc={data.imgSrc} 
+                w={data.w}
+                h={data.h}
+                book={false}
+            />
         </div>
     );
 }
 
-const GetCustomerInfo = () => {
+const GetCustomerInfo = ({data}) => {
     return (
         <div>
-
+            <Forms />
+            <ServiceCard
+                service={data.service} 
+                hours={data.hours} 
+                price={data.price} 
+                desc={data.desc}
+                imgSrc={data.imgSrc} 
+                w={data.w}
+                h={data.h}
+                book={false}
+            />
         </div>
     );
 }

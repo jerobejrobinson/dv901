@@ -85,8 +85,6 @@ const convertMinutes = (minutes) => {
 }
 const timeArrToString = ([hours, mins]) => `${hours}:${mins}`;
 
-console.log(generateTimeSlots("08:30","17:00","00:15"))
-
 let frames = generateTimeSlots("08:30","17:00","00:15")
     .filter(time => {
         return compareThree(
@@ -99,8 +97,6 @@ let frames = generateTimeSlots("08:30","17:00","00:15")
         )
     })
 
-console.log(frames);
-
 frames = frames.filter(time => {
     return compareThree(
         getValues("15:00"),
@@ -112,8 +108,6 @@ frames = frames.filter(time => {
     )
 })
 
-console.log(frames)
-
 frames = frames.filter(time => {
     return compareThree(
         getValues("08:30"),
@@ -124,5 +118,3 @@ frames = frames.filter(time => {
         )
     )
 })
-
-console.log(frames)
