@@ -52,7 +52,7 @@ const compare = ([sH,sM], [eH,eM]) => {
     return (sMins < eMins)?true:false;
 }
 
-const compareThree = ([sH,sM], [mH, mM], [eH,eM]) => {
+export const compareThree = ([sH,sM], [mH, mM], [eH,eM]) => {
 
     const sMins = (Number(sH) * 60) + Number(sM);
     const mMins = (Number(mH) * 60) + Number(mM);

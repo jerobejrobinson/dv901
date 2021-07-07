@@ -44,7 +44,19 @@ mutation($name: String!, $email: String!, $phone: String!, $date: String!, $time
       }
   }
 `;
+
+const GET_BOOKED_TIMESLOTS = `
+  query($date: String!) {
+    getAppointmentDates(date: $date) {
+      data {
+        time
+      }
+    }
+  }
+`;
+
 module.exports = {
     GET_APPOINTMENTS,
-    CREATE_CUSTOMER
+    CREATE_CUSTOMER,
+    GET_BOOKED_TIMESLOTS
 }
