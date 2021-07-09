@@ -55,6 +55,9 @@ const GET_BOOKED_TIMESLOTS = `
   }
 `;
 
+const GET_BOOKED_OUT_DATES = `
+
+`
 module.exports = {
     GET_APPOINTMENTS,
     CREATE_CUSTOMER,

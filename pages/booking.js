@@ -1,13 +1,17 @@
-import React, {useState, useContext} from "react";
+import React, {useState} from "react";
 import ProgressBar from "../comps/ProgressBar";
 import ServiceCard from "../comps/ServiceCard";
 import Calender from "../comps/Calender"
 import TimeSlot from "../comps/TimeSlot/";
 import Forms from "../comps/Forms";
 import TermsAgree from "../comps/TermsAgree";
+import ThankYou from "../comps/ThankYou";
+import { useRouter } from 'next/router'
 export const Update = React.createContext();
 
 export default function Booking() {
+    const router = useRouter();
+
     const pagesTotal = 100/6;
     const [page, setPage] = useState(1);
     const [percent, setPercent] = useState(pagesTotal);
@@ -15,7 +19,7 @@ export default function Booking() {
     const [serviceSelected, setServiceSelected] = useState({});
     const update = {
         page: () => {
-            if(page === 6) return;
+            if(page === 7) return;
             setPage(prev => prev + 1);
             setPercent(pagesTotal * (page + 1));
         }, 
@@ -44,7 +48,8 @@ export default function Booking() {
                 {page === 3 && <SelectDate data={serviceSelected}/>}
                 {page === 4 && <SelectTime data={serviceSelected}/>}
                 {page === 5 && <GetCustomerInfo data={serviceSelected}/>}
-                {page === 6 && <SelectServices />}
+                {page === 6 && <ShowThankYou data={serviceSelected} />}
+                {page === 7 && (() => {router.push("/")})()}
             </Update.Provider >
         </>
     );
@@ -150,6 +155,24 @@ const ShowPolicy = ({data}) => {
     return (
         <div>
             <TermsAgree data={data} />
+            <ServiceCard
+                service={data.service} 
+                hours={data.hours} 
+                price={data.price} 
+                desc={data.desc}
+                imgSrc={data.imgSrc} 
+                w={data.w}
+                h={data.h}
+                book={false}
+            />
+        </div>
+    )    ;
+}
+
+const ShowThankYou = ({data}) => {
+    return (
+        <div>
+            <ThankYou data={data} />
             <ServiceCard
                 service={data.service} 
                 hours={data.hours} 

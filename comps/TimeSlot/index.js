@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { generateTimeSlots, compareThree, getValues, addValues } from "./generateTimeSlots";
 import ContinueBtn from "../ContinueBtn";
 import { Update } from "../../pages/booking";
+
 const TimeSlot = () => {
     const [el, setEL] = useState(document.createElement('div'))
     const [time, setTime] = useState("");
