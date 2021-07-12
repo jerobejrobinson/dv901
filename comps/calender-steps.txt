@@ -1,0 +1,5 @@
+- Make a Call to the server
+- Match the dates generated to the server
+- if that date has more than 3 appointment times 
+- then display that date as a grayed out box
+- mod

@@ -28,6 +28,7 @@ const TimeSlot = () => {
             
             const booked = await res.json();
             setBooking(booked)
+
             let ts = timeSlots();
             booked.map(book => {
                 ts = ts.filter(time => {
@@ -42,6 +43,7 @@ const TimeSlot = () => {
                 })
             })
             setSlots(ts)
+
         }catch(err) {
             console.log(err)
         }
@@ -50,14 +52,15 @@ const TimeSlot = () => {
     useEffect(() => {
         getBookedSlots()
     }, [])
+    
     return (
-        <div>
+        <div className="max-w-screen-md mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-auto text-center md:max-w-screen-md ">
                 {
                     slots.map((ts, index) => (
                         <div 
                             key={index} 
-                            className={`p-5 border border-gray-300 hover:bg-red-300`}
+                            className={`p-5 border border-gray-300 hover:bg-red-300 cursor-pointer`}
                             onClick={(e) => {
                                 setTime(`${ts[0]}:${ts[1]}`); 
                                 setEL((prev) => {

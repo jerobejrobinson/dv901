@@ -18,7 +18,7 @@ const ContinueBtn = ({children, data, service}) => {
     }
     return (
         <button 
-            className="text-center bg-red-200 w-full py-2 rounded mt-5"
+            className="text-center bg-red-200 w-full py-2 mt-5"
             onClick={() => {
                 update.page();
                 (service)?update.serviceSelected(service):null;

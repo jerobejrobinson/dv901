@@ -9,7 +9,7 @@ const Forms = () => {
     
     const style = "block w-full rounded border border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50";
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="max-w-screen-md mx-auto">
             <form className="space-y-5">
                 <label className="block">
                     <span className="text-gray-700">Name</span>

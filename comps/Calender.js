@@ -5,11 +5,33 @@ import ContinueBtn from "./ContinueBtn";
 const Calender = () => {
     const [calender, setCalender] = useState([]);
     const [value, setValue] = useState(moment());
+    const [bDates, setBDates] = useState([])
     const startDay = value.clone().startOf("month").startOf("week");
     const endDay = value.clone().endOf("month").endOf("week");
     const fakeData = ["07-16-2021", "07-19-2021", "07-23-2021", "07-17-2021"];
 
-    createCalender(startDay, endDay, value, setCalender);
+    const checkDates = async (day, arr) => {
+        const date = day.format("MM-DD-YYYY")
+        const body = {date}
+        
+        try {
+
+            const res = await fetch('/net/getTimeSlots', {
+                method: 'POST',
+                body: JSON.stringify(body)
+            })
+
+            const sessions = await res.json();
+            if(sessions.length >= 2) {
+                arr.push(date)
+            }
+        } catch (err) {
+            console.error(err)
+        }
+
+    }
+    
+    createCalender(startDay, endDay, value, setCalender, checkDates, setBDates);
 
     return (
         <div className="w-full md:max-w-screen-md mx-auto border border-gray-300 mt-10">
@@ -26,7 +48,7 @@ const Calender = () => {
                     <div className="flex w-full justify-stretch mx-auto" key={index}>
                         {week.map((day, index) => (
                             <div 
-                                className={`p-3 hover:bg-red-300 w-full text-center cursor-pointer ${applyDayStyles(day, value, fakeData)}`}
+                                className={`p-3 hover:bg-red-300 w-full text-center cursor-pointer ${applyDayStyles(day, value, bDates)}`}
                                 onClick={() => setValue(day)}
                                 key={index}
                             >    
@@ -74,14 +96,24 @@ const applyDayStyles = (day, value, fakeData) => {
 
     return dayStyles(day);
 }
-const createCalender = (startingDay, endingDay, value, func) => {
+const createCalender = (startingDay, endingDay, value, setC, fet, setB) => {
     useEffect(() => {
         const day = startingDay.clone().subtract(1, day);
         const calender = [];
+        const dates = []
+
         while(day.isBefore(endingDay, "day")){
             calender.push(Array(7).fill(0).map(() => day.add(1, "day").clone()))
         }
-        func(calender)
+
+        calender.map(week => {
+            week.map(day => {
+                fet(day, dates)
+            })
+        })
+
+        setB(dates)
+        setC(calender)
     }, [value])
 }
 const Header = ({func, value}) => {
