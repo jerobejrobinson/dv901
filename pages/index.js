@@ -18,7 +18,7 @@ export default function Home() {
         <p className="p-5 mt-12">Hello, my dreamers!<br/>My name is Angelica Holmes and I&apos;m a lash tech based in Memphis, Tn Here you can fulfil your lash dreams, either it&apos;s a <strong>classic</strong>, <strong>hybrid</strong>, or <strong>volume</strong> set. I can fulfil that for you! </p>
         <button className="bg-red-300	p-5 mt-12 ">
           <Link href="/booking">
-            <a>Book Now!</a>
+            <a>Book Now!!</a>
           </Link>
         </button>
       </div>
