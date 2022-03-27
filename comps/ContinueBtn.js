@@ -2,7 +2,9 @@ import { useContext } from "react";
 import { Update } from '../pages/booking';
 
 const ContinueBtn = ({children, data, service}) => {
-    let update = useContext(Update);
+    // Using Update Context from /pages/booking
+    const update = useContext(Update);
+    
     const handleSubmit = async () => {
         const {name, email, phone, date, time, service, desc, hours} = update.getData;
         const body = {name, email, phone, date, time, service, desc, hours};

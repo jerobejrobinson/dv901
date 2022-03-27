@@ -2,7 +2,8 @@ import {useState} from 'react';
 import ContinueBtn from "./ContinueBtn";
 
 const Forms = () => {
-    const [name, setName] = useState("Full Name");
+    // useState to track data in input forms
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("Email");
     const [phone, setPhone] = useState("Phone Number");
     const [pass, setPass] = useState("6 characters");
@@ -13,7 +14,9 @@ const Forms = () => {
             <form className="space-y-5">
                 <label className="block">
                     <span className="text-gray-700">Name</span>
-                    <input type="text" className={style} onChange={(e) => {setName(e.target.value)}} value={name}/>
+                    <input type="text" className={style} onChange={(e) => {
+                        setName(e.target.value)
+                        }} placeholder={"Full Name"}/>
                 </label>
                 <label className="block">
                     <span className="text-gray-700">Email</span>
