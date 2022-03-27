@@ -1,12 +1,6 @@
 import ServiceCard from "../comps/ServiceCard";
 import Link from "next/link";
 export default function Home() {
-  const handleClick = () => {
-    //put data into local storage
-    //grab data from LS to generate Service Card on Booking
-    //make sure to clear data once booking has been made
-
-  }
   return (
     <>
     <div className="bg-gray-100 text-center py-12">
