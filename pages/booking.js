@@ -7,16 +7,19 @@ import Forms from "../comps/Forms";
 import TermsAgree from "../comps/TermsAgree";
 import ThankYou from "../comps/ThankYou";
 import { useRouter } from 'next/router'
+
 export const Update = React.createContext();
 
 export default function Booking() {
     const router = useRouter();
 
     const pagesTotal = 100/6;
+    
     const [page, setPage] = useState(1);
     const [percent, setPercent] = useState(pagesTotal);
     const [data, setData] = useState({});
     const [serviceSelected, setServiceSelected] = useState({});
+
     const update = {
         page: () => {
             if(page === 7) return;
