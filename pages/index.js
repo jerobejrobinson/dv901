@@ -1,4 +1,3 @@
-import ServiceCard from "../comps/ServiceCard";
 import Link from "next/link";
 export default function Home() {
   return (
