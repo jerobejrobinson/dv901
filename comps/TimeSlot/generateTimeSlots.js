@@ -10,6 +10,7 @@ export const generateTimeSlots = (start, end, length) => {
 
     return timeSlots;
 }
+
 export const getValues = (time, str = ":") => {
     return time.split(str)
 }
